@@ -4,30 +4,38 @@ document
     .addEventListener('submit', async function (event) {
         event.preventDefault();
 
-    const $first = document.querySelector('#user-first').value.trim(); 
-    const $last = document.querySelector('#user-last').value.trim(); 
-    const $email = document.querySelector('#user-email').value.trim(); 
-    const $password = document.querySelector('#user-password').value.trim(); 
+    const $first = document.querySelector('#user-first');
+    const $last = document.querySelector('#user-last');
+    const $email = document.querySelector('#user-email'); 
+    const $password = document.querySelector('#user-password');
 
     const response = await fetch('/api/signUp', {
         method: 'POST',
         body: JSON.stringify({
-            first: $first,
-            last: $last,
-            email: $email,
-            password: $password
+            firstName: $first.value.trim(),
+            lastName: $last.value.trim(),
+            email: $email.value.trim(),
+            password: $password.value.trim()
         }),
         headers: { 
             'Content-Type': 'application/json' }
     });
-    const data = await response.json();
-    if (data) {
-    alert(`Thank you, ${$first}. You have successfully signed up! `); // res.json from newUser.js
+
+    if (!response.ok) {
+        switch(response.status) {
+            case 500:
+            default:
+                alert(JSON.stringify(response));
+        }
+
+        return;
     }
 
-    // $first.value = '';
-    // $last.value = '';
-    // $email.value = '';
-    // $password.value = '';
+    const data = await response.json();
+    if (data) {
+        console.log(data) // remember to remove this
+    alert(`Thank you, ${data.firstName}. You have successfully signed up! `); // res.json from newUser.js
 
+    window.location.redirect('/home'); // TODO: Redirect to home page
+    }
 });
