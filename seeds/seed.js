@@ -1,28 +1,32 @@
-const sequelize = require('../config/connection');
-const { User, Post } = require('../models');
-
-const userData = require('./userData.json');
-const postData = require('./postData.json');
-
-
-const seedDatabase = async () => {
-    await sequelize.sync({ force: true });
-    const users = await User.bulkCreate(userData, {
-        individualHooks: true,
-        returning: true
-    });
-
-    for (const post of postData) {
-        await Post.create({
-            ...post,
-            user_id: users[Math.floor(Math.random() * users.length)].id
-        });
-    }
-
-    console.log("DATABASE SEEDED! HAHAHAHA")
-
-    process.exit(0);
+// function to create a new user
+const createUser = async (email, password) => {
+    const User = await User.create({ email, password });
+    const token = createToken(user.id);
+    return token;
 };
 
+// function to login a user
+const loginUser = async (email, password) => {
+    const User = await User.findOne({ where: { email } });
+    if (!User) {
+        throw new Error('No user with that email');
+    }
+    const validPassword = await bcrypt.compare(password, User.password);
+    if (!validPassword) {
+        throw new Error('Incorrect password');
+    }
+    const token = createToken(User.id);
+    return token;
+};
 
-seedDatabase();
+// function to create a token
+const createToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: 60 * 60 * 24,
+    });
+};
+
+module.exports = {
+    createUser,
+    loginUser,
+};

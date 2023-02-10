@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/login', async (req, res) => {
     try {
         res.render('login', {
-            title: "login",
+            title: "Login",
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
@@ -23,10 +23,10 @@ router.get('/login', async (req, res) => {
     }
 });
 
-router.get('/guest', async (req, res) => {
+router.get('/user', async (req, res) => {
     try {
-        res.render('guest', {
-            title: "guest",
+        res.render('user', {
+            title: "User",
         });
     } catch (err) {
         res.status(500).json(err);
@@ -36,9 +36,15 @@ router.get('/guest', async (req, res) => {
 router.get('/dashboard', async (req, res) => {
     try {
         res.render('dashboard', {
-            title: "dashboard",
+            title: "Dashboard",
             loggedIn: req.session.loggedIn
         });
+// added if statement after ASK BCS
+        if (!req.session.loggedIn) {
+            res.redirect('/login');
+            return;
+        }
+
     } catch (err) {
         res.status(500).json(err);
     }

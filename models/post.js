@@ -27,9 +27,14 @@ Post.init(
         user_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'guest',
+                model: 'user',
                 key: 'id'
             }
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         }
     },
     {
