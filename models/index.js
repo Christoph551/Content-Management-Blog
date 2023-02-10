@@ -1,3 +1,5 @@
-const signUp = require('./signUp');
+const guest = require('./guest');
 
-module.exports = { signUp };
+
+
+module.exports = { guest };

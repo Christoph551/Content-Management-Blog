@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { signUp } = require('../../models');
+const { guest } = require('../../models');
 
-// POST calls to /api/signUp
-router.post('/', async (req, res) => {
+// POST calls to /api/guest
+router.post('/guest', async (req, res) => {
     try {
-        const newUser = await signUp.create({
+        const newUser = await guest.create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,

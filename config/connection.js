@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
-// @@TODO: add dynamic connection for JAWSDB (Heroku)
-
 let sequelize;
 
 if (process.env.JAWSDB_URL) {

@@ -9,7 +9,7 @@ document
     const $email = document.querySelector('#user-email'); 
     const $password = document.querySelector('#user-password');
 
-    const response = await fetch('/api/signUp', {
+    const response = await fetch('/guest', {
         method: 'POST',
         body: JSON.stringify({
             firstName: $first.value.trim(),

@@ -2,13 +2,14 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-class signUp extends Model { 
+class Guest extends Model { 
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 };
 
-signUp.init(
+
+Guest.init(
     {
         firstName: {
             type: DataTypes.STRING,
@@ -37,7 +38,7 @@ signUp.init(
             validate: {
                 len: [8]
             },
-            },
+            }
         },
         // hooks: {
         //     beforeCreate: async (newUser) => {
@@ -51,8 +52,8 @@ signUp.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'signUp'
+        modelName: 'guest'
     }
 );
 
-module.exports = signUp;
+module.exports = Guest;
