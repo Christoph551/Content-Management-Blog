@@ -1,40 +1,17 @@
-<div class="container">
-    <div class="card mt-3 mb-3">
-        <div class="card-header" style="background-color:silver">
-            <div class="float-end">
-                <b>2/09/2023</b>
-            </div>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Chris Simmonds</h5>
-            <p class="card-text">Playing around with styling is fun!</p>
-            <a href="#" class="btn btn-primary float-end">View Comments</a>
-        </div>
-    </div>
-    <div class="card mt-3 mb-3">
-        <div class="card-header" style="background-color:silver">
-            <div class="float-end">
-                <b>2/10/2023</b>
-            </div>        
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            {{!-- <a href="#" class="btn btn-primary float-end">View Comments</a> --}}
-        </div>
-    </div>
-    <div class="card mt-3 mb-3">
-        <div class="card-header" style="background-color:silver">
-            <div class="float-end">
-                <b>2/10/2023</b>
-            </div>        
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            {{!-- <a href="#" class="btn btn-primary float-end">View Comments</a> --}}
-        </div>
+{{!-- May need to add partials here in order to display previous notes and adding a new note --}}
+<div class="card w-75 mb-3 d-flex align-items-center mt-3">
+    <div class="card-body" style="display:flex; flex-direction:column; align-items:center;">
+        
+        <input type="text" class="form-control w-75 mt-3" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg" placeholder="Enter a title">
+        <input type="text" class="form-control w-75 mt-3" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg" placeholder="Write your thoughts here!">
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="/dashboard" class="btn btn-primary">Post your blog</a>
     </div>
 </div>
+
+{{!-- <div class="input-group input-group-lg w-50">
+</div> --}}
+
+{{!-- class="d-flex justify-content-center input-group-text w-50 mt-3" --}}
