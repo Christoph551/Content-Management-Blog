@@ -1,0 +1,20 @@
+[
+    {
+        user_id: 1,
+        post_id: 1,
+        post_content: "This is a test post",
+        date_created: "2021-03-01 00:00:00"
+    },
+    {
+        user_id: 2,
+        post_id: 1,
+        post_content: "This is a test post #2",
+        date_created: "2021-03-02 00:00:00"
+    },
+    {
+        user_id: 3,
+        post_id: 1,
+        post_content: "This is a test post #3",
+        date_created: "2021-03-03 00:00:00"
+    },
+]

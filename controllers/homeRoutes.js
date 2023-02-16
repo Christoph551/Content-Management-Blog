@@ -39,7 +39,7 @@ router.get('/dashboard', async (req, res) => {
             title: "Dashboard",
             loggedIn: req.session.loggedIn
         });
-// added if statement after ASK BCS
+
         if (!req.session.loggedIn) {
             res.redirect('/login');
             return;

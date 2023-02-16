@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "post_title": "Working on some JavaScript!",
+        "post_content": "This Challenge 14 was a bit of a challenge on my own, but now that we've worked through Project 2 I feel like I have a much better idea!",
+        "user_id": 1,
+        "date_created": "02/16/2023",
+        "status": "Feeling Optimistic!"
+    },
+    {
+        "id": 2,
+        "post_title": "Watching Netflix!",
+        "post_content": "My boyfriend drives me crazy sometimes, but I love him.",
+        "user_id": 3,
+        "date_created": "02/16/2023",
+        "status": "Feeling Content."
+    },
+    {
+        "id": 3,
+        "post_title": "Love learning new things!",
+        "post_content": "I have lots of great ideas and am doing really well implementing them.",
+        "user_id": 2,
+        "date_created": "02/01/2023",
+        "status": "😀"
+    }
+    
+]

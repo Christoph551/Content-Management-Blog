@@ -1,5 +1,5 @@
 {
-  "name": "content-management-blog",
+  "name": "Content-Management-Blog",
   "version": "1.0.0",
   "description": "CSM Style Blog Site",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Christoph551/Social-Blog.git"
+    "url": "git+https://github.com/Christoph551/Content-Management-Blog.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Christoph551/Social-Blog/issues"
+    "url": "https://github.com/Christoph551/Content-Management-Blog/issues"
   },
-  "homepage": "https://github.com/Christoph551/Social-Blog#readme",
+  "homepage": "https://github.com/Christoph551/Content-Management-Blog#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
