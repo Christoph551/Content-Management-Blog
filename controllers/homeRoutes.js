@@ -14,6 +14,10 @@ router.get('/', async (req, res) => {
 
 router.get('/login', async (req, res) => {
     try {
+        if (req.session.loggedIn) {
+            res.redirect('/dashboard');
+            return;
+        }
         res.render('login', {
             title: "Login",
             loggedIn: req.session.loggedIn
@@ -23,17 +27,17 @@ router.get('/login', async (req, res) => {
     }
 });
 
-router.get('/user', async (req, res) => {
+router.get('/signUp', async (req, res) => {
     try {
         res.render('user', {
-            title: "User",
+            title: "signUp",
         });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         res.render('dashboard', {
             title: "Dashboard",
