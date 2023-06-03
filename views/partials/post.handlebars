@@ -1,0 +1,21 @@
+{{!-- Display seeded data for each of the user's post --}}
+{{#each posts}}
+    {{> post}}
+{{/each}}
+
+{{! Path: views\partials\post.handlebars }}
+{{! This is the partial that will be used to display each post --}}
+
+
+<div class="card mt-3 mb-3">
+        <div class="card-header" style="background-color:silver">
+            <div class="float-end" style="font-size:larger">
+            <h5 class="card-title">{{post.post_title}}</h5>
+            </div>
+        </div>
+        <div class="card-body">
+                <b class="float-end" style="color:grey;">{{{format_date }}}</b>
+            <p class="card-text mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta laudantium sit aliquid beatae necessitatibus aliquam perspiciatis debitis quas voluptates quibusdam, quo fugiat cum deserunt repellat earum labore ipsa nobis culpa.</p>
+            <a href="#" class="btn btn-primary float-end">View Comments</a>
+        </div>
+    </div>

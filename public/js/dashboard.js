@@ -1,8 +1,8 @@
-document.querySelector('#dashboard')
+document.querySelector('#profile')
     .addEventListener('click', async function (event) {
         event.preventDefault();
 
-        const response = await fetch('/dashboard', {
+        const response = await fetch('/profile', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json' }
@@ -18,7 +18,7 @@ document.querySelector('#dashboard')
             }
             const data = await response.json();
             if (data) {
-                window.location.redirect('/dashboard'); 
+                window.location.redirect('/profile'); 
             }
             
 });

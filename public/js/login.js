@@ -5,14 +5,14 @@ const loginHandler = async (event) => {
     const password = document.querySelector('#user-password').value.trim();
 
     if (email && password) {
-        const response = await fetch('/login?', {
+        const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/');
         } else {
             alert('Failed to log in.');
         }

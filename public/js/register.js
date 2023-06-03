@@ -9,7 +9,7 @@ const registerHandler = async (event) => {
     const password = document.querySelector('#register-password');
 
     if (firstName && lastName && email && password) {
-        const response = await fetch('/api/user', {
+        const response = await fetch('/api', {
             method: 'POST',
             body: JSON.stringify({ 
                 firstName, 
@@ -21,7 +21,7 @@ const registerHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/profile');
         } else {
             alert('Failed to sign up.');
         }

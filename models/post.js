@@ -42,8 +42,8 @@ Post.init(
                 try {
                     newPostData = await NewPost.create({
                         user_id: newPostData.client_id,
-                        ticket_id: newPostData.id,
-                        log_text: 'Here is a new post!'
+                        post_id: newPostData.id,
+                        post_content: 'Here is a new post!'
                     })
 
                 }
@@ -51,7 +51,7 @@ Post.init(
                     console.log(err)
                 }
 
-                return newLogData
+                return newPostData
             }
         },
         sequelize,
