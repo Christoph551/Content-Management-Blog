@@ -9,21 +9,16 @@
             style="justify-content: flex-end;"
             class="col-6 container collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav justify-content-center">
-                {{!-- {{#if loggedIn}} {{! If the user is logged in, show the Log Out button. }} --}}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/profile" id="profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/post" id="post">Post</a>
-                </li>
+                {{#if loggedIn}} {{! If the user is logged in, show the Log Out button. }}
+
                 <li class="nav-item">
                     <a class="nav-link active me-2" aria-current="page" href="/logout">Log Out</a>
                 </li>
-                {{!-- {{else}} {{! If the user is not logged in, show the Log In button. }} --}}
+                {{else}} {{! If the user is not logged in, show the Log In button. }}
                 <li class="nav-item">
                     <a class="nav-link active me-2" aria-current="page" href="/login">Log In</a>
                 </li>
-                {{!-- {{/if}} {{! End of if/else statement. }} --}}
+                {{/if}} {{! End of if/else statement. }}
             </ul>
         </div>
     </div>

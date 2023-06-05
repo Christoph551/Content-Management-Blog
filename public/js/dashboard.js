@@ -1,8 +1,8 @@
-document.querySelector('#profile')
+document.querySelector('#post')
     .addEventListener('click', async function (event) {
         event.preventDefault();
 
-        const response = await fetch('/profile', {
+        const response = await fetch('/post', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json' }
@@ -18,7 +18,7 @@ document.querySelector('#profile')
             }
             const data = await response.json();
             if (data) {
-                window.location.redirect('/profile'); 
+                window.location.redirect('/post'); 
             }
             
 });

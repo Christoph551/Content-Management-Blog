@@ -1,0 +1,50 @@
+.homepage {
+    display: flex;
+    justify-content: center;
+}
+
+.newPostBtn {
+    margin: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    height: 40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.newPostBtn:hover {
+    background-color: #0d47a1;
+}
+
+.postForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .newPostBtn {
+        width: 35%;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .newPostBtn {
+        width: 50%;
+        font-size: 12px;
+    }
+}
+    

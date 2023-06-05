@@ -1,22 +1,19 @@
 [
     {
         "id": 1,
-        "first_name": "Chris",
-        "last_name": "Simmonds",
+        "username": "Chris",
         "email": "chris@email.com",
         "password": "password1234"
     },
     {
         "id": 2,
-        "first_name": "Josh",
-        "last_name": "Minor",
+        "username": "Josh",
         "email": "josh@email.com",
         "password": "password1234"
     },
     {
         "id": 3,
-        "first_name": "Kammie",
-        "last_name": "Loya",
+        "username": "Kammie",
         "email": "kammie@email.com",
         "password":"password1234"
     }

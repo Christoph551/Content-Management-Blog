@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+// const postRoutes = require('./controllers/apiRoutes/postRoutes');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -15,7 +16,12 @@ const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: process.env.SECRET,
-    cookie: {},
+    cookie: {
+        maxAge: 1800000, // 30 Minutes
+        httpOnly: true, 
+        secure: false, //may need to change to true before deployment
+        sameSite: 'strict',
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -23,6 +29,7 @@ const sess = {
     })
 };
 
+// app.use('/api/post', postRoutes);
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);

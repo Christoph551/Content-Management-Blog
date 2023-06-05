@@ -9,23 +9,31 @@ class User extends Model {
     }
 };
 
-
+// Explore changing from first_name and last_name to username
 User.init(
     {
-        first_name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
             validate: {
-                isAlpha: true
+                isAlphanumeric: true
             }
         },
-        last_name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isAlpha: true
-            }
-        },
+        // first_name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         isAlpha: true
+        //     }
+        // },
+        // last_name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     validate: {
+        //         isAlpha: true
+        //     }
+        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,

@@ -1,21 +1,37 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const  { Post }  = require('../../models');
+const  { User, Post }  = require('../../models');
 
 // /api/post
-
-
-router.get('/post/:id', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req,res) => {
     try {
-        const postData = await Post.findByPk(req.params.id);
-
-        const post = postData.get({ plain: true });
-
-        res.status(200).json(post);
-    } catch (err) {
-        res.status(500).json('Server Error: Could not get Post.');
+      const newPost = await Post.create({
+        post_title: req.body.post_title,
+        post_content: req.body.post_content,
+        user_id: req.session.user_id //having issue finding this piece of data...
+      })
+      res.status(200).json(newPost)
     }
-})
+    catch (err) {
+      res.status(400).json
+    }
+  })
+
+  // /api/user/post
+
+
+
+// router.get('/post/:id', withAuth, async (req, res) => {
+//     try {
+//         const postData = await Post.findByPk(req.params.id);
+
+//         const post = postData.get({ plain: true });
+
+//         res.status(200).json(post);
+//     } catch (err) {
+//         res.status(500).json('Server Error: Could not get Post.');
+//     }
+// })
 
 router.put('/post/:id', withAuth, async (req, res) => {
     try {
