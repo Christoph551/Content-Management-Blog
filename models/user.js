@@ -1,15 +1,3 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
-
-
-class User extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-    }
-};
-
-// Explore changing from first_name and last_name to username
 User.init(
     {
         username: {
@@ -20,33 +8,18 @@ User.init(
                 isAlphanumeric: true
             }
         },
-        // first_name: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         isAlpha: true
-        //     }
-        // },
-        // last_name: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false,
-        //     validate: {
-        //         isAlpha: true
-        //     }
-        // },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
                 isEmail: true
-            },
+            }
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        
     },
     {
         timestamps: true,
@@ -54,21 +27,18 @@ User.init(
         underscored: true,
         modelName: 'user',
         sequelize
-    },
-    {
-        hooks: {
-            // set up beforeCreate lifecycle "hook" functionality
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
-        }
-    },
+    }
 );
+
+// Hooks should be defined outside the options object
+User.addHook('beforeCreate', async (newUserData) => {
+    newUserData.password = await bcrypt.hash(newUserData.password, 10);
+    return newUserData;
+});
+
+User.addHook('beforeUpdate', async (updatedUserData) => {
+    updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+    return updatedUserData;
+});
 
 module.exports = User;

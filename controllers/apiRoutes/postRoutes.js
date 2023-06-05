@@ -19,7 +19,7 @@ router.post('/', withAuth, async (req,res) => {
 
   // /api/user/post
 
-// I believe this will be the route to get an individual post. May be good for viewing a post and its comments.
+//I believe this will be the route to get an individual post. May be good for viewing a post and its comments.
 
 // router.get('/post/:id', withAuth, async (req, res) => {
 //     try {
