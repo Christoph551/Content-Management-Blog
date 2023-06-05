@@ -2,41 +2,27 @@
     <a href="/post" class="newPostBtn">Add a new post</a>
 </section>
 
-{{!-- {{#if loggedIn}} --}}
-
-{{#each postDataSerialize as |post|}}
-
-<div class="card mt-3 mb-3">
-    <div 
-        class="card-header" 
-        style="background-color:silver; display: flex; justify-content:space-between;">
-        <div>
-            <h5 class="card-title">{{post.user.username}}</h5>
+{{#if loggedIn}}
+    {{#each postDataSerialize as |post|}}
+        <div class="card mt-3 mb-3">
+            <div class="card-header" style="background-color:silver; display: flex; justify-content:space-between;">
+                <div>
+                    <h5 class="card-title">{{post.user.username}}</h5>
+                </div>
+                <div>
+                    <b class="float-end" style="color:rgb(0, 0, 0); display:flex; justify-content:space-between;">
+                        Posted on: {{{format_date post.date_created}}}
+                    </b>
+                </div>
+            </div>
+            <div class="float-end" style="font-size:larger">
+                <h5 style="display:flex; justify-content:center;" class="card-title mt-3">{{post.post_title}}</h5>
+            </div>
+            <div style="display:flex; justify-content:space-between;" class="card-body">
+                <div>
+                    <p class="card-text mx-5">{{post.post_content}}</p>
+                </div>
+            </div>
         </div>
-    <div>
-
-        <b class="float-end" style="color:grey; display:flex; justify-content:space-between;">Posted on: {{{format_date post.date_created}}}</b>
-    </div>
-    </div>
-        <div class="float-end" style="font-size:larger">
-            <h5 style="display:flex; justify-content:center;" class="card-title mt-3">{{post.post_title}}</h5>
-        </div>
-    <div 
-        style="display:flex; justify-content:space-between;"
-        class="card-body"
-    >
-    <div>
-
-        <p class="card-text mx-5">{{post_content}}</p>
-    </div>
-        {{!-- View comments to be added soon! --}}
-        {{!-- <a href="#" class="btn btn-primary float-end">View Comments</a> --}}
-    </div>
-</div>
-
-{{/each}}
-
-{{!-- {{/if}} --}}
-
-
-{{!-- {{> post}} --}}
+    {{/each}}
+{{/if}}

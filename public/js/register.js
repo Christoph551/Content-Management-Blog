@@ -1,5 +1,7 @@
 //@@ TODO: Form submit listener, dispatch a fetch call (register the user as a private user)
 
+const registerForm = document.querySelector('form');
+
 const registerHandler = async (event) => {
     event.preventDefault();
 
@@ -8,7 +10,7 @@ const registerHandler = async (event) => {
     const password = document.querySelector('#user-password').value.trim();
 
     if (username && email && password) {
-        const response = await fetch('/api', {
+        const response = await fetch('/api/user/signUp', {
             method: 'POST',
             body: JSON.stringify({ 
                 username, 
@@ -27,4 +29,6 @@ const registerHandler = async (event) => {
     }
 };
 
-document.querySelector('.form-register').addEventListener('submit', registerHandler);
+document.addEventListener('DOMContentLoaded', () => {
+registerForm.addEventListener('submit', registerHandler)
+});

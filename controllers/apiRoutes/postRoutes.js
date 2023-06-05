@@ -19,7 +19,7 @@ router.post('/', withAuth, async (req,res) => {
 
   // /api/user/post
 
-
+// I believe this will be the route to get an individual post. May be good for viewing a post and its comments.
 
 // router.get('/post/:id', withAuth, async (req, res) => {
 //     try {
@@ -74,7 +74,7 @@ router.post('/post', withAuth, async (req, res) => {
             post_content: req.body.post_content,
             date_created: req.body.date_created,
             user_id: req.session.user_id,
-            status: req.body.status
+            post_id: req.body.post_id,
         })
 
         res.status(200).json(newPost);

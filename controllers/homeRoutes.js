@@ -47,7 +47,7 @@ router.get('/login', async (req, res) => {
 router.get('/signUp', async (req, res) => {
     try {
         res.render('user', {
-            title: "Create your account",
+            title: "Create your account!",
         });
     } catch (err) {
         res.status(500).json(err);
@@ -58,7 +58,7 @@ router.get('/post', async (req, res) => {
     try {
         res.render('post', {
             title: "Make a Post!",
-            // loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn
         });
 
         // if (!req.session.loggedIn) {
