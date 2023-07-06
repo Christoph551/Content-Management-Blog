@@ -1,5 +1,3 @@
-//@@ TODO: Form submit listener, dispatch a fetch call (register the user as a private user)
-
 const registerForm = document.querySelector('form');
 
 const registerHandler = async (event) => {

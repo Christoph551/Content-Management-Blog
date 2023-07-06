@@ -1,23 +1,23 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const  { User, Post }  = require('../../models');
+const { User, Post } = require('../../models');
 
 // /api/post
-router.post('/', withAuth, async (req,res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
-      const newPost = await Post.create({
-        post_title: req.body.post_title,
-        post_content: req.body.post_content,
-        user_id: req.session.user_id //having issue finding this piece of data...
-      })
-      res.status(200).json(newPost)
+        const newPost = await Post.create({
+            post_title: req.body.post_title,
+            post_content: req.body.post_content,
+            user_id: req.session.user_id 
+        })
+        res.status(200).json(newPost)
     }
     catch (err) {
-      res.status(400).json
+        res.status(400).json
     }
-  })
+})
 
-  // /api/user/post
+// /api/user/post
 
 //I believe this will be the route to get an individual post. May be good for viewing a post and its comments.
 
