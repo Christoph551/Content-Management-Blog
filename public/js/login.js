@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.location.replace('/');
             } else {
                 alert('Failed to log in.');
+                console.log(response)
             }
         }
     };

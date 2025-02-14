@@ -21,6 +21,8 @@ router.get('/', async (req, res) => {
             title: "Homepage",
             postDataSerialize,
             logged_in: req.session.logged_in, // Pass the logged_in variable
+            username: req.session.username,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);
@@ -57,7 +59,8 @@ router.get('/post', async (req, res) => {
     try {
         res.render('post', {
             title: "Make a Post!",
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            username: req.session.username
         });
 
         if (!req.session.logged_in) {

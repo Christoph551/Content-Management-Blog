@@ -41,9 +41,9 @@ Post.init(
             afterCreate: async (newPostData) => {
                 try {
                     newPostData = await NewPost.create({
-                        user_id: newPostData.client_id,
+                        user_id: newPostData.user_id,
                         post_id: newPostData.id,
-                        post_content: 'Here is a new post!'
+                        post_content: newPostData.post_content
                     })
 
                 }
